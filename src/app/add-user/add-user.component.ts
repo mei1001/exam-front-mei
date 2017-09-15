@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from api/api.service;
+import { APIServiceService } from '../apiservice/apiservice.service';
 
 @Component({
   selector: 'app-add-user',
@@ -7,11 +7,20 @@ import { ApiService } from api/api.service;
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-
-  constructor(private api : ApiService) { }
+  NewUser = {
+    'Id': Number,
+    'Name': '',
+    'Email': '',
+    'Address': '',
+    'Phone': ''
+    
+  };
+  constructor(private apiservice: APIServiceService) { }
 
   ngOnInit() {
   }
-
-  Name; Email; Address; Phone; Company;
+  AddUser() {
+    this.NewUser['Id'] = this.apiservice.UserList[this.apiservice.UserList.length - 1]['Id'] + 1;
+    this.apiservice.UserList.push(this.NewUser);
+  }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { APIServiceService } from "./apiservice/apiservice.service";
 
 @Component({
   selector: 'app-root',
@@ -6,12 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  ChangeTab(UserList, AddUser) {
-    document.getElementById(UserList).classList.add('active')
-    document.getElementById(AddUser).classList.remove('active');
-
-    var e = (document.getElementById("abc")) as HTMLSelectElement;
-    var value = e.options[e.selectedIndex].text;
-
-  }
+  title = 'app';
 }

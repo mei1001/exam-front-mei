@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from "../api/api.service";
+import { Http, Headers, RequestOptions } from "@angular/http";
+import { Observable } from "rxjs/Rx";
+import { APIServiceService } from '../apiservice/apiservice.service';
 
 @Component({
   selector: 'app-user-list',
@@ -7,10 +9,19 @@ import { ApiService } from "../api/api.service";
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  Name : String ="";
+  Email : String = "";
+  Phone : String = "";
+  Address : String = "";
+  UserList : object[] = [];
 
-  constructor(private api : ApiService) { }
+  constructor(private http:Http,private data : APIServiceService) { }
 
   ngOnInit() {
+    return this.data.RefreshData();
   }
 
+  DeleteToDo(i){
+ this.data.RemoveData(i);
+  }
 }
