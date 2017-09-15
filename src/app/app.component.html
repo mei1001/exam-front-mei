@@ -1,18 +1,5 @@
-<table class="table table-bordered">
-   <tr style="text-align:center">
-     <th>Name</th>
-     <th>Email</th>
-     <th>Address</th>
-     <th>Company</th>
-     <th>Action</th>
-   </tr>
-   <tr>
-     <td>{{u.Name}}</td>
-     <td>{{u.Email}}</td>
-     <td>{{u.Phone}}</td>
-     <td>
-       <button type="button" class="btn btn-danger" (click)="DeleteToDo"(t.$key)
-      </td>
-    </tr>
-    
- </table>
+<div class="link">
+  <a href="" routerLink="/UserList">UserList</a>
+  <a href="" routerLink="/UserList">AddUser</a>
+</div>
+<router-outlet></router-outlet>
